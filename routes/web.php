@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UniversityController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,4 +39,11 @@ Route::prefix('faculty')->name('faculty.')->group(function () {
     Route::post('/update/{faculty}', [FacultyController::class, 'update'])->name('update');
     Route::get('/delete/{faculty}', [FacultyController::class, 'delete'])->name('delete');
     Route::get('/{faculty}', [FacultyController::class, 'view'])->name('view');
+});
+
+Route::prefix('program')->name('program.')->group(function () {
+    Route::post('/submit', [ProgramController::class, 'submit'])->name('submit');
+    Route::post('/update/{program}', [ProgramController::class, 'update'])->name('update');
+    Route::get('/delete/{program}', [ProgramController::class, 'delete'])->name('delete');
+    Route::get('/{program}', [ProgramController::class, 'view'])->name('view');
 });

@@ -2,9 +2,9 @@
 @section('content')
     <div class="container-xl">
         <h1 class="app-page-title">
-            <a href="{{ route('university.index') }}">{{ $faculty->university->name }}</a>
+            {{-- <a href="{{ route('university.index') }}">{{ $faculty->university->name }}</a> --}}
             >
-            <a href="{{ route('university.view', ['university' => $faculty->university_id]) }}">{{ $faculty->name }}</a>
+            <a href="{{ route('faculty.view', ['faculty' => $program->faculty_id]) }}">{{ $program->name }}</a>
             > Programs
         </h1>
     </div>
@@ -13,7 +13,7 @@
             <form action="{{ route('program.submit') }}" method="POST">
                 @csrf
                 <div class="row g-3 align-items-center">
-                    <input type="hidden" name="faculty_id" value="{{ $faculty->id }}">
+                    {{-- <input type="hidden" name="faculty_id" value="{{ $faculty->id }}"> --}}
                     <div class="col-md-6">
                         <label class="sr-only" for="signup-email">Program Name</label>
                         <input name="name" type="text" class="form-control signup-name" placeholder="Program Name" required>
@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($faculty->program->all() as $item)
+                        {{-- @foreach ($faculty->program->all() as $item)
                             <tr>
                                 <form action="{{ route('program.update', ['program' => $item->id]) }}" method="POST">
                                     @csrf
@@ -83,7 +83,7 @@
                                 </form>
 
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
                     </tbody>
                 </table>
